@@ -1,0 +1,20 @@
+MVC, que significa Model-View-Controller, é um padrão arquitetural amplamente utilizado no desenvolvimento de software para organizar e estruturar o código de uma aplicação. Ele divide a aplicação em três componentes principais:
+
+1. **Modelo (Model):**
+   - Representa a lógica de negócios e os dados da aplicação.
+   - Responsável por gerenciar o estado e a funcionalidade da aplicação.
+   - Não possui conhecimento sobre a interface do usuário.
+
+2. **Visão (View):**
+   - Refere-se à interface do usuário e à apresentação dos dados.
+   - Mostra ao usuário as informações provenientes do modelo.
+   - Não contém lógica de negócios significativa; seu objetivo é exibir informações e interagir com o usuário.
+
+3. **Controlador (Controller):**
+   - Atua como intermediário entre o modelo e a visão.
+   - Gerencia as interações do usuário e atualiza o modelo ou a visão conforme necessário.
+   - Contém lógica de controle e coordena o fluxo de dados entre o modelo e a visão.
+
+O MVC visa separar as preocupações dentro de uma aplicação, facilitando a manutenção e a evolução do código. A divisão clara de responsabilidades permite que diferentes partes da aplicação sejam modificadas sem afetar as outras. Isso promove a reutilização de código e a escalabilidade do software.
+
+Esse padrão arquitetural é amplamente utilizado em desenvolvimento web, aplicativos desktop e outros contextos, proporcionando uma estrutura organizada que facilita o desenvolvimento colaborativo e a manutenção do código.
