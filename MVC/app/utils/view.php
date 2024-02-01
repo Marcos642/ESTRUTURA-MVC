@@ -10,9 +10,15 @@ class view{
     }
 
     // Criar metodos responsaveis por gerenciar as views em resources \ view \ pages
-    public static function render($view){ // retorna conteudo renderizado da view
-        // conteudo da view
+    public static function render($view, $vars = []){ // retorna conteudo renderizado da view
         $contentView = self::getContentView($view);
-        return $contentView; // retorna o conteudo
+        //DESCOBRIR A CHAVE DO ARRAY DE VARIAVEIS
+        $keys = array_keys($vars);
+        $keys = array_map(function($item){
+            //Ou seja, cada elemento do array $keys é modificado para ter {{ antes e }} depois do seu valor original.
+            return '{{'.$item.'}}'; 
+        },$keys);
+        return str_replace($keys,array_values($vars),$contentView); 
+        
     }  
 }

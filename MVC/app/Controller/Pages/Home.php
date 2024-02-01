@@ -8,7 +8,10 @@ class Home{
      * Metodos responsavel por retornar o conteudo (View) da Homer
     */
     public static function getHome(){
-        return view::render('pages\home');
+        return view::render('pages\home',[
+            'name'=>'Marc',
+            'description'=>'Ver os conceitos fundamentais de MVC'
+        ]);
     }
 }
 
