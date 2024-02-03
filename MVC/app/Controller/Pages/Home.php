@@ -3,17 +3,17 @@
 namespace App\Controller\Pages;
 
 use \App\utils\view;  // para usar a classe
-class Home{
+class Home extends Page{
     /*
      * Metodos responsavel por retornar o conteudo (View) da Homer
     */
     public static function getHome(){
-        return view::render('pages\home',[
+        // RETORNA A VIEW DA HOME
+        $home = view::render('pages\home',[
             'name'=>'Marc',
             'description'=>'Ver os conceitos fundamentais de MVC'
         ]);
+        // RETORNA A VIEW DA PAGE
+        return parent::getPage("Mvc - Teste", $home);
     }
 }
-
-// Só que o controler é responsavel por pegar os dados que o model retornou
-// e colocalos dentro da view
