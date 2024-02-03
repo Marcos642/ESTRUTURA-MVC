@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Pages;
 use \App\utils\view;  // para usar a classe
+use App\Model\Entity\Organization;
 
 class Home extends Page{
     /*
@@ -9,10 +10,11 @@ class Home extends Page{
     resultando em uma página HTML personalizada.
     */
     public static function getHome(){
+        $ObOrganization = new Organization;
         // RETORNA A VIEW DA HOME
         $home = view::render('pages\home',[
-            'name'=>'Marc',
-            'description'=>'Ver os conceitos fundamentais de MVC'
+            'name'=>$ObOrganization->name,
+            'description'=>$ObOrganization->descricao
         ]);
         // RETORNA A VIEW DA PAGE
         return parent::getPage("Mvc - Teste", $home);
