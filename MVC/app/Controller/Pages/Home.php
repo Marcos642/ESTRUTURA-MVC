@@ -1,11 +1,12 @@
 <?php
-   //Responsavel por gerenciar as requisições da homer do site (Pagina inicial)
 namespace App\Controller\Pages;
-
 use \App\utils\view;  // para usar a classe
+
 class Home extends Page{
     /*
-     * Metodos responsavel por retornar o conteudo (View) da Homer
+    Este método utiliza a classe view para renderizar a view chamada 'pages\home', passando um array
+    associativo de variáveis (name e description). Os valores dessas variáveis serão substituídos na view,
+    resultando em uma página HTML personalizada.
     */
     public static function getHome(){
         // RETORNA A VIEW DA HOME
@@ -16,4 +17,5 @@ class Home extends Page{
         // RETORNA A VIEW DA PAGE
         return parent::getPage("Mvc - Teste", $home);
     }
+
 }

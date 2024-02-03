@@ -3,19 +3,22 @@
     namespace App\utils;
 
 class view{
-    // validar se o arquivo existe ou não
-    private static function getContentView($view){ // retorna conteudo da view
+    // Este método recebe o nome de uma view (modelo) como parâmetro e tenta obter o conteúdo desse arquivo HTML.
+    // Se o arquivo existir, ele retorna o conteúdo; caso contrário, retorna a string "erro".
+    private static function getContentView($view){ 
         $files = __DIR__.'/../../resources/view/'.$view.".html";
-        return file_exists($files) ? file_get_contents($files) : "Pagina não existe!"; // se o arquivo existir retorne se não retorne nada
+        return file_exists($files) ? file_get_contents($files) : "erro"; 
     }
 
-    // Criar metodos responsaveis por gerenciar as views em resources \ view \ pages
-    public static function render($view, $vars = []){ // retorna conteudo renderizado da view
+    // Este método é responsável por renderizar a view. Ele chama o método getContentView para obter o conteúdo
+    // da view desejada. Em seguida, substitui as variáveis presentes na view pelos valores correspondentes fornecidos
+    // no array $vars. As variáveis na view estão no formato {{nome_da_variavel}}. O método substitui essas placeholders
+    // pelos valores reais das variáveis.
+    public static function render($view, $vars = []){ 
         $contentView = self::getContentView($view);
         //DESCOBRIR A CHAVE DO ARRAY DE VARIAVEIS
         $keys = array_keys($vars);
         $keys = array_map(function($item){
-            //Ou seja, cada elemento do array $keys é modificado para ter {{ antes e }} depois do seu valor original.
             return '{{'.$item.'}}'; 
         },$keys);
         return str_replace($keys,array_values($vars),$contentView); 
